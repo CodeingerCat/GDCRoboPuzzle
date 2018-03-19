@@ -180,7 +180,7 @@ public class WrapTileEditor : Editor
             spaceTrack += baseRect.y - (50 + spaceTrack);
         }
 
-
+        EditorUtility.SetDirty(tile);
 
         // remove coment slashes to add Original unity GUI to the bottom
         baseRect.y += 30;
