@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3507d756ceacee840b543b22b0362bdb, type: 3}
   m_Name: Example Wrap Tile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300016, guid: 55568914ffa1c0946ba6a7e520c4330d, type: 3}
+  m_Sprite: {fileID: 21300048, guid: 836def21e7373ec47b35b4bcc5d39b80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
