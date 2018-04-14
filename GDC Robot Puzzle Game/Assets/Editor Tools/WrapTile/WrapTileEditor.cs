@@ -7,18 +7,15 @@ using UnityEngine.Tilemaps;
 [CustomEditor(typeof(WrapTile))]
 public class WrapTileEditor : Editor
 {
-    Rect baseRect;
+    Rect baseRect; // base rectangel used for sprite imput boxes
 
-    SerializedProperty flag;
-
-    WrapTile tile;
-    float wdiv;
-    float spaceTrack;
-    bool BaseTileEdit, CenterInternTileEdit, EdgeInternTileEdit, AceptedEdit;
+    WrapTile tile; // tile the editor is being called for
+    float wdiv; // a value dirived from the width of the inpector: used for spacing purposes
+    float spaceTrack; // tracks how much space there is from the top to next UI element
+    bool BaseTileEdit, CenterInternTileEdit, EdgeInternTileEdit, AceptedEdit; // bools for drop downs
 
     public void OnEnable()
     {
-        flag = serializedObject.FindProperty("flags");
         baseRect = new Rect(10, 50, 50, 50);
     }
 
@@ -38,10 +35,6 @@ public class WrapTileEditor : Editor
         GUILayout.EndHorizontal();
         tile.color = EditorGUI.ColorField(new Rect(EditorGUIUtility.currentViewWidth/2 - 5, 70, EditorGUIUtility.currentViewWidth/2, 20), tile.color );
         GUILayout.Label("Color");
-
-        /*serializedObject.Update();
-        EditorGUILayout.PropertyField(flag);
-        serializedObject.ApplyModifiedProperties();*/
         
         baseRect.y += 40;
         spaceTrack += baseRect.y - (50 + spaceTrack);

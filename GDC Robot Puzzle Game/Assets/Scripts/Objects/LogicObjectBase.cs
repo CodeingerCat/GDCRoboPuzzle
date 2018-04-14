@@ -11,6 +11,7 @@ public class LogicObjectBase : DataChainObjectBase {
     public override void Setup()
     {
         values = new bool[inputs.Length];
+        hasOutputs = true;
     }
 
     public override bool UpdateData()
@@ -46,7 +47,7 @@ public class LogicObjectBase : DataChainObjectBase {
             temp = new DataChainObjectBase[outputs.Length - 1];
             for (int i = 0; i < outputs.Length; i++)
             {
-                if (outputs[i].gameObject != to)
+                if (outputs[i].gameObject == to)
                 {
                     min = 1;
                 }
@@ -59,7 +60,7 @@ public class LogicObjectBase : DataChainObjectBase {
         else
         {
             temp = new DataChainObjectBase[outputs.Length + 1];
-            for (int i = 0; i < temp.Length; i++)
+            for (int i = 0; i < outputs.Length; i++)
             {
                 temp[i] = outputs[i];
             }
@@ -87,8 +88,32 @@ public class LogicObjectBase : DataChainObjectBase {
         return 0; // no slots
     }
 
+    // returns outputs
     public override DataChainObjectBase[] GetOutputs()
     {
         return outputs;
+    }
+
+    //returns inputs
+    public override DataChainObjectBase[] GetInputs()
+    {
+        return inputs;
+    }
+
+    // show conections in editor
+    public override void DrawOutputs()
+    {
+        for (int i = 0; i < outputs.Length; i++)
+        {
+            if (outputs[i])
+            {
+                Gizmos.color = Color.cyan;
+                Vector3 baseVec = outputs[i].transform.position - transform.position;
+                Vector3 baseVecTan = new Vector3(-baseVec.y, baseVec.x).normalized * 0.3f;
+                Gizmos.DrawRay(transform.position, baseVec);
+                Gizmos.DrawRay(transform.position + (baseVec * 0.7f), baseVecTan - (baseVec.normalized * 0.3f));
+                Gizmos.DrawRay(transform.position + (baseVec * 0.7f), -baseVecTan - (baseVec.normalized * 0.3f));
+            }
+        }
     }
 }

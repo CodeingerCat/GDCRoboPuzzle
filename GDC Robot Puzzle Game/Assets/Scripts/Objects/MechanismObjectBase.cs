@@ -7,6 +7,7 @@ public class MechanismObjectBase : DataChainObjectBase {
     public DataChainObjectBase input; // input Date Chain object
 
     // [[ Functions ]]
+    // toggle the input for a object if space available
     public override int ToggleInput(GameObject toCheck)
     {
         if(input != null)
@@ -22,9 +23,9 @@ public class MechanismObjectBase : DataChainObjectBase {
         return 1;
     }
 
+    // updates state data
     public override bool UpdateData()
     {
-        Debug.Log("Check 4");
         if (input)
         {
             bool remState = state;
@@ -37,6 +38,12 @@ public class MechanismObjectBase : DataChainObjectBase {
             state = false;
         }
         return false;
+    }
+
+    // retuns the input
+    public override DataChainObjectBase[] GetInputs()
+    {
+        return new DataChainObjectBase[] { input };
     }
 
     // called when the state is changed by the bool data chain

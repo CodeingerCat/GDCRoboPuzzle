@@ -80,8 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   hasOutputs: 0
-  outputs:
-  - {fileID: 0}
+  outputs: []
 --- !u!212 &212736030659136696
 SpriteRenderer:
   m_ObjectHideFlags: 1
