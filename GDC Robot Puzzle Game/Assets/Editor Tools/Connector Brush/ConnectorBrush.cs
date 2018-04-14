@@ -93,6 +93,15 @@ public class ConnectorBrushEditor : GridBrushEditor
 
         if (GUILayout.Button("Toggle Conection Display " + (ConnectorEditorData.showNet ? "off" : "on")))
             ConnectorEditorData.showNet = !ConnectorEditorData.showNet;
+
+        GUILayout.Label("Instuctions");
+        GUILayout.Label("[[ Step 1 ]]");
+        GUILayout.Label("  Select a Data Chain object to start a conection from.");
+        GUILayout.Label("[[ Setp 2]]");
+        GUILayout.Label("  Select a second Data Chain Object to");
+        GUILayout.Label("    1) make a conection to it.");
+        GUILayout.Label("    2) remove a conection to it if one alreay exsists.");
+        GUILayout.Label("  Select the same Data Chain Object to Deselect it.");
     }
 
     // finds if selected tile map exists
