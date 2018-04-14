@@ -56,8 +56,7 @@ MonoBehaviour:
   hasOutputs: 0
   inputs:
   - {fileID: 0}
-  outputs:
-  - {fileID: 0}
+  outputs: []
   values: 
 --- !u!212 &212563920751771704
 SpriteRenderer:
